@@ -38,10 +38,8 @@ public class StudentList {
                 BufferedWriter bufferedWriter = new BufferedWriter(
                         			            new FileWriter(Contstants.STUDENT_LIST, true));
                 String substring = args[0].substring(1);
-                Date date = new Date();
-                String finalDate = Contstants.Date_Format;
-                DateFormat dateFormat = new SimpleDateFormat(finalDate);
-                String formatted = dateFormat.format(date);
+                DateFormat dateFormat = new SimpleDateFormat(Contstants.Date_Format);
+                String formatted = dateFormat.format(new Date());
                 bufferedWriter.write(", " + substring + "\nList last updated on " + formatted);
                 bufferedWriter.close();
             } catch (Exception e) {
