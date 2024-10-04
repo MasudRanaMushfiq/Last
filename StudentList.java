@@ -4,10 +4,12 @@ import java.util.*;
 
 public class StudentList {
     public static void main(String[] args) {
+        //for early exit
 		if(args==null || args.length!=1){
 			System.out.println(Contstants.Wrong_Argument);
 			return;
 		}
+        //file read
         String readLine = fileReader(Contstants.STUDENT_LIST);
 //		Check arguments
         if (args[0].equals(Contstants.ShowAll)) {
