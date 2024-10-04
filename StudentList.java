@@ -5,41 +5,41 @@ import java.util.*;
 public class StudentList {
     public static void main(String[] args) {
 		if(args==null || args.length!=1){
-			System.out.println("Wrong Argument");
+			System.out.println(Contstants.Wrong_Argument);
 			return;
 		}
-        String readLine = fileReader("students.txt");
+        String readLine = fileReader(Contstants.STUDENT_LIST);
 //		Check arguments
-        if (args[0].equals("a")) {
-            System.out.println("Loading data ...");
+        if (args[0].equals(Contstants.ShowAll)) {
+            System.out.println(Contstants.Loading);
             try {
-                String students[] = readLine.split(",");
+                String students[] = readLine.split(Contstants.SplitAt);
                 for (String student : students) {
                     System.out.println(student);
                 }
             } catch (Exception e) {
             }
-            System.out.println("Data Loaded.");
-        } else if (args[0].equals("r")) {
-            System.out.println("Loading data ...");
+            System.out.println(Contstants.Loaded);
+        } else if (args[0].equals(Contstants.ShowRandom)) {
+            System.out.println(Contstants.Loading);
             try {
 
-                String students[] = readLine.split(",");
+                String students[] = readLine.split(Contstants.SplitAt);
                 Random random = new Random();
                 int randomInt = random.nextInt(students.length);
                 System.out.println(students[randomInt].trim());
             } catch (Exception e) {
 
             }
-            System.out.println("Data Loaded.");
-        } else if (args[0].contains("+")) {
-            System.out.println("Loading data ...");
+            System.out.println(Contstants.Loaded);
+        } else if (args[0].contains(Contstants.AddEntry)) {
+            System.out.println(Contstants.Loading);
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(
-                        			            new FileWriter("students.txt", true));
+                        			            new FileWriter(Contstants.STUDENT_LIST, true));
                 String substring = args[0].substring(1);
                 Date date = new Date();
-                String finalDate = "dd/mm/yyyy-hh:mm:ss a";
+                String finalDate = Contstants.Date_Format;
                 DateFormat dateFormat = new SimpleDateFormat(finalDate);
                 String formatted = dateFormat.format(date);
                 bufferedWriter.write(", " + substring + "\nList last updated on " + formatted);
@@ -47,24 +47,24 @@ public class StudentList {
             } catch (Exception e) {
             }
 
-            System.out.println("Data Loaded.");
-        } else if (args[0].contains("?")) {
-            System.out.println("Loading data ...");
+            System.out.println(Contstants.Loaded);
+        } else if (args[0].contains(Contstants.FindEntry)) {
+            System.out.println(Contstants.Loading);
             try {
-                String students[] = readLine.split(",");
+                String students[] = readLine.split(Contstants.SplitAt);
                 boolean done = false;
                 String substring = args[0].substring(1);
                 for (int idx = 0; idx < students.length && !done; idx++) {
                     if (students[idx].trim().equals(substring)) {
-                        System.out.println("We found it!");
+                        System.out.println(Contstants.Found_Massage);
                         done = true;
                     }
                 }
             } catch (Exception e) {
             }
-            System.out.println("Data Loaded.");
-        } else if (args[0].contains("c")) {
-            System.out.println("Loading data ...");
+            System.out.println(Contstants.Loaded);
+        } else if (args[0].contains(Contstants.ShowCount)) {
+            System.out.println(Contstants.Loading);
             try {
                 char charArray[] = readLine.toCharArray();
                 boolean in_word = false;
@@ -82,17 +82,17 @@ public class StudentList {
                 System.out.println(count + " word(s) found ");
             } catch (Exception e) {
             }
-            System.out.println("Data Loaded.");
+            System.out.println(Contstants.Loaded);
         }
 		else {
-			System.out.println("Wrong Argumnet");
+			System.out.println(Contstants.Wrong_Argument);
 		}
     }
     public static String fileReader(String fileName){
         try {
             BufferedReader bufferedReader = new BufferedReader(
                                             new InputStreamReader(
-                                            new FileInputStream("students.txt")));
+                                            new FileInputStream(fileName)));
             return bufferedReader.readLine();
         }
         catch (Exception e){
