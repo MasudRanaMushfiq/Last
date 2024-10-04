@@ -63,20 +63,8 @@ public class StudentList {
         } else if (args[0].contains(Contstants.ShowCount)) {
             System.out.println(Contstants.Loading);
             try {
-                char charArray[] = readLine.toCharArray();
-                boolean in_word = false;
-                int count = 0;
-                for (char element : charArray) {
-                    if (element == ' ') {
-                        if (!in_word) {
-                            count++;
-                            in_word = true;
-                        } else {
-                            in_word = false;
-                        }
-                    }
-                }
-                System.out.println(count + " word(s) found ");
+                String students[] = readLine.split(Contstants.SplitAt);
+                System.out.println(students.length + " word(s) found ");
             } catch (Exception e) {
             }
             System.out.println(Contstants.Loaded);
