@@ -13,7 +13,7 @@ public static void main(String[] args) {
 		if(args[0].equals(Constants.SHOWALL)) {
 			System.out.println(Constants.LOADING);		
 			try {
-			String students[] = readLine.split(Constants.STUDENTLIST);			
+			String students[] = readLine.split(Constants.SPLITAT);			
 			    for(String student : students) { 
                     System.out.println(student);
                 }
@@ -25,7 +25,7 @@ public static void main(String[] args) {
 		{
 			System.out.println(Constants.LOADING);			
 			try {
-			String students[] = readLine.split(Constants.STUDENTLIST);	
+			String students[] = readLine.split(Constants.SPLITAT);	
 			Random random = new Random();
 				int randomInt = random.nextInt(students.length);
 					System.out.println(students[randomInt].trim());
@@ -52,9 +52,9 @@ public static void main(String[] args) {
 		{
 			System.out.println(Constants.LOADING);			
 			try {
-                String students[] = readLine.split(Constants.STUDENTLIST);	
+                String students[] = readLine.split(Constants.SPLITAT);	
 			String substring = args[0].substring(1);
-            
+
 			for(int idx = 0; idx<students.length; idx++){
 				if(students[idx].equals(substring)){
 					System.out.println(Constants.FIND_SMS);
@@ -68,7 +68,7 @@ public static void main(String[] args) {
 		{
 			System.out.println(Constants.LOADING);			
 			try {
-                String students[] = readLine.split(Constants.STUDENTLIST);
+                String students[] = readLine.split(Constants.SPLITAT);
 			        System.out.println(students.length +" word(s) found .");
 			}catch (Exception e){
                 } 

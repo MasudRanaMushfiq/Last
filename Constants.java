@@ -1,7 +1,8 @@
 public class Constants {
     public static final String UNVALID = "(Please Input (a | r | c | +WORD | ?FIND)";
-    public static final String STUDENTLIST = "Student.txt";
+    public static final String STUDENTLIST = "students.txt";
     public static final String SHOWALL = "a";
+    public static final String SPLITAT = ",";
     public static final String DATE = "dd/mm/yyyy-hh:mm:ss a";
     public static final String LOADING = "Loading data ...";
     public static final String LOADED = "Data Loaded.";
