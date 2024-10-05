@@ -4,6 +4,10 @@ import java.text.*;
 import java.util.*;
 public class StudentList {
 public static void main(String[] args) {
+        if(args==null || args.length!=1){
+            System.err.println(Constants.UNVALID);
+            return;
+        }
 //		Check arguments
 		if(args[0].equals("a")) {
 			System.out.println("Loading data ...");		
