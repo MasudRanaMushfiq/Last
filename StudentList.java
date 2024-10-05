@@ -9,11 +9,12 @@ public static void main(String[] args) {
 			System.out.println("Loading data ...");		
 			try {
 			BufferedReader s = new BufferedReader(
-				new InputStreamReader(
-						new FileInputStream("students.txt"))); 
+				               new InputStreamReader(
+						       new FileInputStream("students.txt"))); 
 			String r = s.readLine(); String i[] = r.split(",");			
 			for(String j : i) { System.out.println(j); }
-			} catch (Exception e){} 
+			}catch (Exception e){
+            } 
 			System.out.println("Data Loaded.");
 		}
 		else if(args[0].equals("r")) 
@@ -23,15 +24,18 @@ public static void main(String[] args) {
 			BufferedReader s = new BufferedReader(
 					new InputStreamReader(
 							new FileInputStream("students.txt"))); 
-			String r = s.readLine(); System.out.println(r);
+			String r = s.readLine(); 
+            System.out.println(r);
 			String i[] = r.split(",");	
 			Random x = new Random();
 				int y = x.nextInt();
 					System.out.println(i[y]);
-			} catch (Exception e){} 
+			}catch (Exception e){
+            } 
 			System.out.println("Data Loaded.");			
 		}
-		else if(args[0].contains("+")){
+		else if(args[0].contains("+"))
+        {
 			System.out.println("Loading data ...");			
 			try {
 			BufferedWriter s = new BufferedWriter(
@@ -43,7 +47,8 @@ public static void main(String[] args) {
 	        String fd= dateFormat.format(d);
 			s.write(", "+t+"\nList last updated on "+fd);
 			s.close();
-			} catch (Exception e){}							
+			}catch (Exception e){
+            }							
 			System.out.println("Data Loaded.");	
 		}
 		else if(args[0].contains("?")) 
@@ -63,7 +68,8 @@ public static void main(String[] args) {
 						done=true;
 				}
 			}
-			} catch (Exception e){} 
+			}catch (Exception e){
+            } 
 			System.out.println("Data Loaded.");				
 		}
 		else if(args[0].contains("c")) 
@@ -85,7 +91,8 @@ public static void main(String[] args) {
 				}
 			}
 			System.out.println(count +" word(s) found " + a.length);
-			} catch (Exception e){} 
+			}catch (Exception e){
+            } 
 			System.out.println("Data Loaded.");				
 		}
 	}
