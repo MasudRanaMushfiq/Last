@@ -53,10 +53,10 @@ public static void main(String[] args) {
 			System.out.println(Constants.LOADING);			
 			try {
                 String students[] = readLine.split(Constants.STUDENTLIST);	
-
 			String substring = args[0].substring(1);
-			for(int idx = 0; idx<students.length; idx++) {
-				if(students[idx].equals(substring)) {
+            
+			for(int idx = 0; idx<students.length; idx++){
+				if(students[idx].equals(substring)){
 					System.out.println(Constants.FIND_SMS);
 				}
 			}
