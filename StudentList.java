@@ -10,8 +10,8 @@ public static void main(String[] args) {
         }
         String readLine = fileReader(Constants.STUDENTLIST);
 //		Check arguments
-		if(args[0].equals("a")) {
-			System.out.println("Loading data ...");		
+		if(args[0].equals(Constants.SHOWALL)) {
+			System.out.println(Constants.LOADING);		
 			try {
 			String students[] = readLine.split(Constants.STUDENTLIST);			
 			    for(String student : students) { 
@@ -19,11 +19,11 @@ public static void main(String[] args) {
                 }
 			}catch (Exception e){
             } 
-			System.out.println("Data Loaded.");
+			System.out.println(Constants.LOADED);
 		}
-		else if(args[0].equals("r")) 
+		else if(args[0].equals(Constants.SHOWRANDOM)) 
 		{
-			System.out.println("Loading data ...");			
+			System.out.println(Constants.LOADING);			
 			try {
 			String students[] = readLine.split(Constants.STUDENTLIST);	
 			Random random = new Random();
@@ -31,11 +31,11 @@ public static void main(String[] args) {
 					System.out.println(students[randomInt].trim());
 			}catch (Exception e){
             }
-			System.out.println("Data Loaded.");			
+			System.out.println(Constants.LOADED);			
 		}
-		else if(args[0].contains("+"))
+		else if(args[0].contains(Constants.ADD))
         {
-			System.out.println("Loading data ...");			
+			System.out.println(Constants.LOADING);			
 			try {
 			BufferedWriter bufferedWriter = new BufferedWriter(
 					                        new FileWriter(Constants.STUDENTLIST, true));
@@ -46,33 +46,33 @@ public static void main(String[] args) {
 			bufferedWriter.close();
 			}catch (Exception e){
             }							
-			System.out.println("Data Loaded.");	
+			System.out.println(Constants.LOADING);	
 		}
-		else if(args[0].contains("?")) 
+		else if(args[0].contains(Constants.FIND)) 
 		{
-			System.out.println("Loading data ...");			
+			System.out.println(Constants.LOADING);			
 			try {
                 String students[] = readLine.split(Constants.STUDENTLIST);	
 
 			String substring = args[0].substring(1);
 			for(int idx = 0; idx<students.length; idx++) {
 				if(students[idx].equals(substring)) {
-					System.out.println("We found it!");
+					System.out.println(Constants.FIND_SMS);
 				}
 			}
 			}catch (Exception e){
             } 
-			System.out.println("Data Loaded.");				
+			System.out.println(Constants.LOADED);				
 		}
-		else if(args[0].contains("c")) 
+		else if(args[0].contains(Constants.COUNT)) 
 		{
-			System.out.println("Loading data ...");			
+			System.out.println(Constants.LOADING);			
 			try {
                 String students[] = readLine.split(Constants.STUDENTLIST);
 			    System.out.println(students.length +" word(s) found .");
 			}catch (Exception e){
             } 
-			System.out.println("Data Loaded.");				
+			System.out.println(Constants.LOADED);				
 		}
 	}
     public static String fileReader(String fileName){
