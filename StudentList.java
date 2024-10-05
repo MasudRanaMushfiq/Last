@@ -8,6 +8,7 @@ public static void main(String[] args) {
             System.err.println(Constants.UNVALID);
             return;
         }
+        String readLine = fileReader(Constants.STUDENTLIST);
 //		Check arguments
 		if(args[0].equals("a")) {
 			System.out.println("Loading data ...");		
@@ -16,7 +17,8 @@ public static void main(String[] args) {
 				               new InputStreamReader(
 						       new FileInputStream("students.txt"))); 
 			String r = s.readLine(); String i[] = r.split(",");			
-			for(String j : i) { System.out.println(j); }
+			for(String j : i) { 
+                System.out.println(j); }
 			}catch (Exception e){
             } 
 			System.out.println("Data Loaded.");
@@ -42,15 +44,14 @@ public static void main(String[] args) {
         {
 			System.out.println("Loading data ...");			
 			try {
-			BufferedWriter s = new BufferedWriter(
-					new FileWriter("students.txt", true));
-			String t = args[0].substring(1);
+			BufferedWriter bufferedWriter = new BufferedWriter(
+					                        new FileWriter(Constants.STUDENTLIST, true));
+			String substring = args[0].substring(1);
 	        Date d = new Date();
-	        String df = "dd/mm/yyyy-hh:mm:ss a";
-	        DateFormat dateFormat = new SimpleDateFormat(df);
-	        String fd= dateFormat.format(d);
-			s.write(", "+t+"\nList last updated on "+fd);
-			s.close();
+	        DateFormat dateFormat = new SimpleDateFormat(Constants.DATE);
+	        String formated= dateFormat.format(d);
+			bufferedWriter.write(", "+substring+"\nList last updated on "+formated);
+			bufferedWriter.close();
 			}catch (Exception e){
             }							
 			System.out.println("Data Loaded.");	
@@ -100,4 +101,15 @@ public static void main(String[] args) {
 			System.out.println("Data Loaded.");				
 		}
 	}
+    public static String fileReader(String fileName){
+        try{
+        BufferedReader bufferedReader = new BufferedReader(
+                                        new InputStreamReader(
+                                        new FileInputStream(fileName)));
+            return bufferedReader.readLine();
+        }
+        catch(Exception e){
+            return null;
+        }
+    }
 }
