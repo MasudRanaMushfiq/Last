@@ -69,9 +69,9 @@ public static void main(String[] args) {
 			System.out.println(Constants.LOADING);			
 			try {
                 String students[] = readLine.split(Constants.STUDENTLIST);
-			    System.out.println(students.length +" word(s) found .");
+			        System.out.println(students.length +" word(s) found .");
 			}catch (Exception e){
-            } 
+                } 
 			System.out.println(Constants.LOADED);				
 		}
 	}
